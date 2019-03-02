@@ -24,5 +24,3 @@ class NewEngagementPage extends NavigationPage{
 }
 
 module.exports = NewEngagementPage;
-
-

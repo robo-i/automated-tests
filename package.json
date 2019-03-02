@@ -1,26 +1,28 @@
 {
-    "name": "bb-tests",
-    "version": "0.0.1",
-    "private": true,
-    "description": "Manual and automated tests for BB",
-    "devDependencies": {
-        "del": "3.0.0",
-        "html-dnd": "1.2.0",
-        "eslint": "^5.14.1",
-        "eslint-config-airbnb-base": "^13.1.0",
-        "eslint-import-resolver-node": "^0.3.1",
-        "eslint-plugin-import": "^2.11.0",
-        "gulp": "3.9.1",
-        "gulp-debug": "3.2.0",
-        "gulp-load-plugins": "1.5.0",
-        "gulp-protractor": "4.1.0",
-        "jasmine-spec-reporter": "4.2.1",
-        "log4js": "4.0.2",
-        "log4js-protractor-appender": "1.1.2",
-        "plugin-error": "0.1.2",
-        "protractor-pretty-html-reporter": "0.0.15"
-    },
-    "scripts": {
-        "install": "webdriver-manager update"
-    }
+  "name": "bb-tests",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Automated tests",
+  "devDependencies": {
+    "axios": "0.18.0",
+    "del": "3.0.0",
+    "eslint": "5.15.0",
+    "eslint-import-resolver-node": "0.3.2",
+    "eslint-plugin-import": "2.16.0",
+    "eslint-plugin-jasmine": "2.10.1",
+    "eslint-plugin-protractor": "1.41.1",
+    "gulp": "3.9.1",
+    "gulp-debug": "3.2.0",
+    "gulp-load-plugins": "1.5.0",
+    "gulp-protractor": "4.1.0",
+    "html-dnd": "1.2.0",
+    "jasmine-spec-reporter": "4.2.1",
+    "plugin-error": "0.1.2",
+    "protractor-pretty-html-reporter": "0.0.15",
+    "randomstring": "1.1.5",
+    "uuid": "3.3.2"
+  },
+  "scripts": {
+    "install": "webdriver-manager update"
+  }
 }

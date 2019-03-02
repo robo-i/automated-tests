@@ -10,6 +10,7 @@ class NewAudiencePage extends NavigationPage {
         this.description = $('#segment-description');
         this.next = $('a[data-click-and-wait="handleNext"]');
         this.ruleArea = $('#dropTargetAnd');
+        this.apiIdentifier = $$('.metainfo-bar p:nth-of-type(2)');
     }
 
     setAudienceName(name) {
@@ -29,9 +30,10 @@ class NewAudiencePage extends NavigationPage {
 
         return browser.driver.executeScript(dragAndDrop, engagement.getWebElement(), this.ruleArea.getWebElement());
     }
+
+    getApiIdentifier() {
+        return this.apiIdentifier.count();
+    }
 }
 
 module.exports = NewAudiencePage;
-
-
-

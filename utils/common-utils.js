@@ -1,3 +1,5 @@
+const randomstring = require("randomstring");
+
 module.exports = {
     typeText(element, text) {
         return element.clear()
@@ -20,12 +22,11 @@ module.exports = {
         return element(by.cssContainingText(cssSelector, text)).isPresent();
     },
 
-    selectEntityWithText(cssSelector, text) {
-        return element(by.cssContainingText(cssSelector, text)).click();
-    },
-
-    generateAlphaNumericString() {
-        return Math.random().toString(36).substring(2, 15);
+    generateRandomString() {
+        return 'a' + randomstring.generate({
+            length: 8,
+            charset: 'alphabetic'
+        });
     },
 
     extendObject(baseObject = {}, additionalObject) {

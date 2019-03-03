@@ -17,9 +17,9 @@ module.exports = {
                 pass: utils.readProps('password')
             });
 
-        /* due to some ongoing requests/DB transactions check visit request isn't always successful. In order to avoid
-         * hardcoded wait the following retry logic was implemented */
-        return res.body.length === 1 ? res.body :
-            count < 5 ? this.checkUsersVisit(uuid) : new Error('No data returned after visit check');
+        /* Due to some ongoing requests/DB transactions check visit request isn't always successful
+         (returns an empty array). In order to avoid hardcoded wait the following retry logic was implemented */
+        return (res.body !== undefined && res.body.length === 1) ? res.body :
+            count++ < 5 ? this.checkUsersVisit(uuid) : new Error('No data returned after performing visit check call!');
     }
 };

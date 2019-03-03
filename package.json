@@ -16,7 +16,6 @@
     "jasmine-spec-reporter": "4.2.1",
     "properties-reader": "0.0.16",
     "protractor-pretty-html-reporter": "0.0.15",
-    "randomstring": "1.1.5",
     "uuid": "3.3.2",
     "unirest": "0.6.0"
   },

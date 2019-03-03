@@ -54,7 +54,6 @@ describe('Engagement visit flow: ', () => {
 
         const visitCheckResponse = await rest.checkUsersVisit(randomUuid);
 
-        console.log('BODY: ', visitCheckResponse);
         expect(await visitCheckResponse.length).toBe(1);
         expect(await visitCheckResponse[0].segmentName).toBe(apiIdentifier);
     });

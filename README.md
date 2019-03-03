@@ -6,7 +6,7 @@
 3. Download dependencies by running the following command from the project root folder:
 > npm i
 4. Specify valid login credentials in the login.properties file
-5. If you want to disable headless chrome, comment out --headless in protractor.conf.js file.
+5. If you want to disable headless chrome, comment out --headless in protractor.conf.js file.<br/>
    Run tests with the following command from the project root folder:
 > gulp
 

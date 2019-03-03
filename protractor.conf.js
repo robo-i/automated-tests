@@ -1,3 +1,4 @@
+const envArgs = require('minimist')(process.argv);
 const SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 const PrettyReporter = require('protractor-pretty-html-reporter').Reporter;
 const TIMEOUT_INTERVAL = 60 * 1000;
@@ -15,25 +16,13 @@ exports.config = {
         print() {
         }
     },
-    capabilities: {
-        browserName: 'chrome',
-        chromeOptions: {
-            args: [
-                '--headless',
-                '--disable-gpu',
-                '--no-sandbox',
-                '--window-size=1600,1000'
-            ]
-        },
-        loggingPrefs: {
-            browser: 'ALL'
-        }
-    },
     getPageTimeout: TIMEOUT_INTERVAL,
     allScriptsTimeout: TIMEOUT_INTERVAL,
     SELENIUM_PROMISE_MANAGER: false,
 
     onPrepare() {
+        browser.driver.manage().window().maximize();
+
         jasmine.getEnv().addReporter(
             new SpecReporter({
                 spec: {
@@ -52,3 +41,5 @@ exports.config = {
         return browser.get('/');
     }
 };
+
+exports.config.capabilities = require(`./configs/${envArgs.browser}`);

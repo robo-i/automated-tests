@@ -12,7 +12,8 @@ gulp.task('test', ['create-tmp-dir', 'delete-reports'], () => {
             configFile: 'protractor.conf.js',
             args: [
                 '--baseUrl', envArgs.frontendUrl || 'https://admin.relay42.com',
-                '--suite', envArgs.suite || 'all'
+                '--suite', envArgs.suite || 'all',
+                '--browser', envArgs.browser || 'chrome'
             ]
         }));
 });

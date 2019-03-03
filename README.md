@@ -14,9 +14,8 @@ Note: test run is customazable, it's possible to run a specific suite of tests i
 on a certain environment (testing/staging/production).<br/>
 If other environment isn't explicitly specified, the provided test environment is used by default.<br/>
 If browser isn't specified, chrome is set by default.<br/>
-If no suite is specified, all are run by default.
-> gulp --suites=<suite_name> --browser=<browserName> --frontendUrl=<env>
-<br/>Example:<br/>
+If no suite is specified, all are run by default.<br/>
+Example:<br/>
 > gulp --suite=engagements --browser=firefox --frontendUrl=https://test.env.com
 
 Generated report can be found in ./tmp/report.html and screenshots in ./tmp/reports/img

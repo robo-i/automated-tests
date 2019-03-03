@@ -11,12 +11,12 @@
 > gulp
 
 Note: test run is customazable, it's possible to run a specific suite of tests in headless chrome or firefox
-on a certain environment (testing/staging/production).
-If environment isn't explicitly specified, 'https://admin.relay42.com' is used by default.
-If browser isn't specified, chrome is set by default.
+on a certain environment (testing/staging/production).<br/>
+If other environment isn't explicitly specified, the provided test environment is used by default.<br/>
+If browser isn't specified, chrome is set by default.<br/>
 If no suite is specified, all are run by default.
 > gulp --suites=<suite_name> --browser=<browserName> --frontendUrl=<env>
-Example:
-> gulp --suite=engagements --browser=firefox --frontendUrl=https://staging.relay42.com
+<br/>Example:<br/>
+> gulp --suite=engagements --browser=firefox --frontendUrl=https://test.env.com
 
 Generated report can be found in ./tmp/report.html and screenshots in ./tmp/reports/img

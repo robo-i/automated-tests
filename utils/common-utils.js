@@ -1,5 +1,3 @@
-const randomstring = require("randomstring");
-
 module.exports = {
     typeText(element, text) {
         return element.clear()
@@ -10,34 +8,19 @@ module.exports = {
         return element(by.css(css)).getText();
     },
 
-    selectEntityWithText(cssSelector, text) {
-        return element(by.cssContainingText(cssSelector, text)).click();
-    },
-
     dropDownOptionByText(optionText) {
         return element(by.cssContainingText('option', optionText)).click();
     },
 
-    isEntityWithTextPresent(cssSelector, text) {
-        return element(by.cssContainingText(cssSelector, text)).isPresent();
+    generateAlphaNumericString() {
+        return Math.random().toString(36).substring(2, 15);
     },
 
-    generateRandomString() {
-        return 'a' + randomstring.generate({
-            length: 8,
-            charset: 'alphabetic'
-        });
-    },
-
-    extendObject(baseObject = {}, additionalObject) {
-        return Object.assign(baseObject, additionalObject);
-    },
-
-    refreshPage() {
-        return browser.refresh();
-    },
-
-    wait(timeout = 2) {
+    wait(timeout = 3) {
         return browser.sleep(timeout * 1000);
+    },
+
+    waitForElementToBeDisplayed(elem, timeoutInterval = 7 * 1000) {
+        return browser.wait(protractor.ExpectedConditions.visibilityOf(elem), timeoutInterval, `Element did not appear in ${timeoutInterval / 1000} seconds`);
     },
 };

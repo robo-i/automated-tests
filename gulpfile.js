@@ -1,4 +1,3 @@
-const config = require('./config');
 const gulp = require('gulp');
 const del = require('del');
 const fs = require('fs');
@@ -12,7 +11,7 @@ gulp.task('test', ['create-tmp-dir', 'delete-reports'], () => {
         .pipe(gulpProtractor({
             configFile: 'protractor.conf.js',
             args: [
-                '--baseUrl', envArgs.frontendUrl || config.frontendUrl,
+                '--baseUrl', envArgs.frontendUrl || 'https://admin.relay42.com',
                 '--suite', envArgs.suite || 'all'
             ]
         }));

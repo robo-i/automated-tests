@@ -1,3 +1,5 @@
+const fs = require('fs');
+const propsReader = require('properties-reader');
 const utils = require('../utils/common-utils');
 
 class LoginPage {
@@ -8,10 +10,16 @@ class LoginPage {
         this.signIn = $('button');
     }
 
-    login(username, password) {
-        return utils.typeText(this.username, username)
-            .then(() => utils.typeText(this.password, password))
+    login() {
+        return utils.typeText(this.username, this._readProps('username'))
+            .then(() => utils.typeText(this.password, this._readProps('password')))
             .then(() => this.signIn.click());
+    }
+
+    _readProps(propName) {
+        const properties = propsReader('login.properties');
+
+        return properties.get(propName);
     }
 }
 

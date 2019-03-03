@@ -21,13 +21,13 @@ describe('Engagement flow: ', () => {
     beforeAll(() => {
         browser.waitForAngularEnabled(true);
 
-        return loginPage.login('relay42test1@gmail.com', 'relay42test');
+        return loginPage.login();
     });
 
     it('add an engagement and its audience', async () => {
-        const engagementName = utils.generateRandomString();
+        const engagementName = utils.generateAlphaNumericString();
         const engagementDescription = 'Bulgarian tomatoes';
-        const audienceName = utils.generateRandomString();
+        const audienceName = utils.generateAlphaNumericString();
         const audienceDescription = 'Tomato audience description';
         const randomUuid = uuid();
 
@@ -47,13 +47,15 @@ describe('Engagement flow: ', () => {
         await newAudiencePage.clickOnNextButton();
         await newAudiencePage.clickOnNextButton();
         await newAudiencePage.clickOnNextButton();
-        const apiIdentifier = newAudiencePage.getApiIdentifier();
-        console.log('API: ', apiIdentifier);
 
-        await rest.visitEngagement(engagementName, randomUuid);
-        // await rest.visitEngagement(engagementName, '80995670-3d33-11e9-8879-139435802ef2');
+        const apiIdentifier = await newAudiencePage.getApiIdentifier();
+
+        await utils.wait(5); // workaround for some ongoing requests/DB transactions that impact visit call
+        await rest.visitEngagement(randomUuid, engagementName);
+
         const visitCheckResponse = await rest.checkUsersVisit(randomUuid);
-        // const visitCheckResponse = await rest.checkUsersVisit('80995670-3d33-11e9-8879-139435802ef2');
-        console.log('BODY: ', visitCheckResponse.body);
+
+        expect(await visitCheckResponse.body.length).toBe(1);
+        expect(await visitCheckResponse.body[0].segmentName).toBe(apiIdentifier);
     });
 });

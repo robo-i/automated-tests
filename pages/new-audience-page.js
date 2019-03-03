@@ -10,7 +10,7 @@ class NewAudiencePage extends NavigationPage {
         this.description = $('#segment-description');
         this.next = $('a[data-click-and-wait="handleNext"]');
         this.ruleArea = $('#dropTargetAnd');
-        this.apiIdentifier = $$('.metainfo-bar p:nth-of-type(2)');
+        this.apiIdentifierSelector = '.metainfo-bar p:nth-of-type(2)';
     }
 
     setAudienceName(name) {
@@ -32,7 +32,8 @@ class NewAudiencePage extends NavigationPage {
     }
 
     getApiIdentifier() {
-        return this.apiIdentifier.count();
+        return element.all(by.css(this.apiIdentifierSelector))
+            .then(elements => elements[0].getText());
     }
 }
 

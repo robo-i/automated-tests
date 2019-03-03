@@ -5,7 +5,8 @@
 > npm i gulp -g
 3. Download dependencies with the following command from the project root folder:
 > npm i
-4. Run tests with the following command from the project root folder:
+4. Specify valid login credentials in the login.properties file
+5. Run tests with the following command from the project root folder:
 > gulp
 
 Test run is customazible, it's possible to run a specific suite of tests by using the command

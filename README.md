@@ -1,9 +1,9 @@
 **Steps to follow in order to run automated tests**
 
 1. Install Node.js
-2. Install gulp:
+2. Install gulp by executing the command:
 > npm i gulp -g
-3. Download dependencies with the following command from the project root folder:
+3. Download dependencies by running the following command from the project root folder:
 > npm i
 4. Specify valid login credentials in the login.properties file
 5. If you want to disable headless chrome, comment out --headless in protractor.conf.js file.

@@ -1,3 +1,5 @@
+const propsReader = require('properties-reader');
+
 module.exports = {
     typeText(element, text) {
         return element.clear()
@@ -23,4 +25,10 @@ module.exports = {
     waitForElementToBeDisplayed(elem, timeoutInterval = 7 * 1000) {
         return browser.wait(protractor.ExpectedConditions.visibilityOf(elem), timeoutInterval, `Element did not appear in ${timeoutInterval / 1000} seconds`);
     },
+
+    readProps(propName) {
+        const properties = propsReader('login.properties');
+
+        return properties.get(propName);
+    }
 };

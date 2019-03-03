@@ -1,6 +1,6 @@
 const SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 const PrettyReporter = require('protractor-pretty-html-reporter').Reporter;
-const TIMEOUT_INTERVAL = 30 * 1000;
+const TIMEOUT_INTERVAL = 60 * 1000;
 
 exports.config = {
     directConnect: true,

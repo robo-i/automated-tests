@@ -10,12 +10,9 @@ class EngagementsPage extends NavigationPage {
     }
 
     clickOnNewEngagementButton() {
-        try {
-            return this.newEngagementButton.click();
-        } catch (error) {
-            // catching StaleElementException
-            return utils.waitForElementToBeDisplayed(this.newEngagementNameInput);
-        }
+        return utils.waitForElementToBeDisplayed(this.newEngagementButton)
+            .then(() => this.newEngagementButton.click())
+            .then(() => utils.waitForElementToBeDisplayed(this.newEngagementNameInput));
     }
 }
 

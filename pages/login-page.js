@@ -11,8 +11,8 @@ class LoginPage {
     }
 
     login() {
-        return utils.typeText(this.username, this._readProps('username'))
-            .then(() => utils.typeText(this.password, this._readProps('password')))
+        return utils.typeText(this.username, utils.readProps('username'))
+            .then(() => utils.typeText(this.password, utils.readProps('password')))
             .then(() => this.signIn.click());
     }
 

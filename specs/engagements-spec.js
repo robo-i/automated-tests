@@ -9,7 +9,7 @@ const utils = require('../utils/common-utils');
 const rest = require('../utils/rest-utils');
 const uuid = require('uuid/v1');
 
-describe('Engagement flow: ', () => {
+describe('Engagement visit flow: ', () => {
     const loginPage = new LoginPage();
     const navigationPage = new NavigationPage();
     const dataManagementPage = new DataManagementPage();
@@ -24,7 +24,7 @@ describe('Engagement flow: ', () => {
         return loginPage.login();
     });
 
-    it('add an engagement and its audience', async () => {
+    it('visit newly added engagement by its audience and check the visit', async () => {
         const engagementName = utils.generateAlphaNumericString();
         const engagementDescription = 'Bulgarian tomatoes';
         const audienceName = utils.generateAlphaNumericString();
@@ -50,12 +50,12 @@ describe('Engagement flow: ', () => {
 
         const apiIdentifier = await newAudiencePage.getApiIdentifier();
 
-        await utils.wait(5); // workaround for some ongoing requests/DB transactions that impact visit call
         await rest.visitEngagement(randomUuid, engagementName);
 
         const visitCheckResponse = await rest.checkUsersVisit(randomUuid);
 
-        expect(await visitCheckResponse.body.length).toBe(1);
-        expect(await visitCheckResponse.body[0].segmentName).toBe(apiIdentifier);
+        console.log('BODY: ', visitCheckResponse);
+        expect(await visitCheckResponse.length).toBe(1);
+        expect(await visitCheckResponse[0].segmentName).toBe(apiIdentifier);
     });
 });

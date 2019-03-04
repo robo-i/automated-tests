@@ -4,7 +4,8 @@ jobs:
     working_directory: ~/automated-tests
     docker:
 #      - image: atlassianlabs/docker-node-jdk-chrome-firefox
-      - image: coveo/node-chrome-dockerbuild
+#      - image: coveo/node-chrome-dockerbuild
+      - image: atlassianlabs/docker-node-jdk-chrome-firefox
     steps:
       - checkout
       - run:
@@ -19,7 +20,8 @@ jobs:
     working_directory: ~/automated-tests
     docker:
 #      - image: atlassianlabs/docker-node-jdk-chrome-firefox
-      - image: coveo/node-chrome-dockerbuild
+#      - image: coveo/node-chrome-dockerbuild
+      - image: atlassianlabs/docker-node-jdk-chrome-firefox
     steps:
       - checkout
       - run:

@@ -9,9 +9,9 @@ jobs:
       - run:
           name: Update npm
           command: 'sudo npm i -g npm@latest'
-#      - run:
-#           name: Install dependencies
-#           command: 'npm i --no-optional'
+      - run:
+           name: Install gulp
+           command: 'sudo npm i -g gulp'
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
@@ -25,7 +25,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: 'npm i'
+          command: 'sudo npm i'
       - run:
           name: Test
           command: 'gulp'

@@ -36,7 +36,7 @@ jobs:
       - checkout
       - run:
           name: Install gulp
-          command: 'npm i -g gulp'
+          command: 'npm i gulp'
       - run:
           name: Install drivers
           command: 'gulp webdriver-update'

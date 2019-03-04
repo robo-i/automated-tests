@@ -34,7 +34,7 @@ jobs:
       - run:
           name: Test
           command: 'gulp'
-      - store_test_results:
+      - store_artifacts:
           path: /report/report.html
           destination: artifacts
 

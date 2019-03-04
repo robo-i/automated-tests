@@ -27,11 +27,11 @@ jobs:
           name: Install gulp
           command: 'npm i -g gulp'
       - run:
-          name: Install webdriver manager
-          command: 'npm install -g webdriver-manager'
-      - run:
           name: Install dependencies
           command: 'npm i'
+      - run:
+          name: Install drivers
+          command: 'gulp webdriver-update'
       - run:
           name: Test
           command: 'gulp'

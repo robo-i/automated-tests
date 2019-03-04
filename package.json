@@ -18,8 +18,5 @@
     "protractor-pretty-html-reporter": "0.0.15",
     "uuid": "3.3.2",
     "unirest": "0.6.0"
-  },
-  "scripts": {
-    "install": "webdriver-manager update"
   }
 }

@@ -3,6 +3,7 @@ const del = require('del');
 const fs = require('fs');
 const envArgs = require('minimist')(process.argv);
 const gulpProtractor = require('gulp-protractor').protractor;
+const webDriverUpdate = require('gulp-protractor').webdriver_update;
 
 gulp.task('default', ['test']);
 
@@ -27,3 +28,5 @@ gulp.task('create-tmp-dir', () => {
         fs.mkdirSync('./tmp');
     }
 });
+
+gulp.task('webdriver-update', (done) => webDriverUpdate(done));

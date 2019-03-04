@@ -7,13 +7,13 @@ jobs:
     steps:
       - checkout
       - run:
-          name: update npm
+          name: Update npm
           command: 'sudo npm install -g npm@latest'
       - run:
-          name: install gulp
-          command: 'sudo npm i gulp -g'
+          name: Install gulp
+          command: 'sudo npm i -g gulp-cli'
       - run:
-          name: install dependencies
+          name: Install dependencies
           command: 'npm i'
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
@@ -21,12 +21,15 @@ jobs:
             - node_modules
 
   test:
+    pre:
+        - ./node_modules/.bin/gulp
+        - ./node_modules/gulp/bin/gulp.js
+        - node node_modules/gulp/bin/gulp.js
     docker:
       - image: circleci/node:8
     steps:
-      - checkout
       - run:
-          name: test
+          name: Test
           command: 'gulp'
       - store_artifacts:
           path: ~/automated-tests/tmp/report.html

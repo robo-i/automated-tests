@@ -21,7 +21,7 @@ jobs:
           command: 'gulp webdriver-update'
       - run:
           name: Test
-          command: 'gulp'
+          command: 'gulp --browser=firefox'
       - store_artifacts:
           path: ./report/report.html
 

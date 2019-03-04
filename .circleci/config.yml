@@ -4,7 +4,7 @@ jobs:
     working_directory: ~/automated-tests
     docker:
 #      - image: atlassianlabs/docker-node-jdk-chrome-firefox
-      - image: selenium/node-chrome
+      - image: colthreepv/node-chrome
     steps:
       - checkout
       - run:
@@ -19,7 +19,7 @@ jobs:
     working_directory: ~/automated-tests
     docker:
 #      - image: atlassianlabs/docker-node-jdk-chrome-firefox
-      - image: selenium/node-chrome
+      - image: colthreepv/node-chrome
     steps:
       - checkout
       - run:

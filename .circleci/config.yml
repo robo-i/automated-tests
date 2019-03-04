@@ -34,9 +34,9 @@ jobs:
       - run:
           name: Test
           command: 'gulp'
-      - store_artifacts:
-          path: reports/html
-          destination: reports
+    store_artifacts:
+      path: reports/html
+      destination: reports
 
 workflows:
   version: 2

@@ -5,12 +5,12 @@ jobs:
     docker:
 #      - image: atlassianlabs/docker-node-jdk-chrome-firefox
 #      - image: coveo/node-chrome-dockerbuild
-      - image: bestus/node-chrome-firefox
+      - image: digitalgenius/ubuntu-node-chrome-selenium
     steps:
       - checkout
-#      - run:
-#          name: Update npm
-#          command: 'npm i -g npm@latest'
+      - run:
+          name: Update npm
+          command: 'npm i -g npm@latest'
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
@@ -21,7 +21,7 @@ jobs:
     docker:
 #      - image: atlassianlabs/docker-node-jdk-chrome-firefox
 #      - image: coveo/node-chrome-dockerbuild
-      - image: bestus/node-chrome-firefox
+      - image: digitalgenius/ubuntu-node-chrome-selenium
 #    parallelism: 2
     steps:
       - checkout

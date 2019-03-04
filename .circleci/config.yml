@@ -18,6 +18,7 @@ jobs:
     docker:
       - image: driebit/node-gulp:latest
     steps:
+      - checkout
       - run:
           name: Install dependencies
           command: 'npm i'

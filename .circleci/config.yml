@@ -21,10 +21,6 @@ jobs:
             - node_modules
 
   test:
-    pre:
-        - ./node_modules/.bin/gulp
-        - ./node_modules/gulp/bin/gulp.js
-        - node node_modules/gulp/bin/gulp.js
     docker:
       - image: circleci/node:8
     steps:
@@ -45,3 +41,7 @@ workflows:
       - test:
           requires:
             - build
+          pre:
+            - ./node_modules/.bin/gulp
+            - ./node_modules/gulp/bin/gulp.js
+            - node node_modules/gulp/bin/gulp.js

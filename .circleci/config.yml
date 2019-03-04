@@ -9,9 +9,6 @@ jobs:
       - run:
           name: Update npm
           command: 'npm i -g npm@latest'
-#      - run:
-#           name: Install gulp
-#           command: 'sudo npm i -g gulp'
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
@@ -34,7 +31,7 @@ jobs:
           command: 'gulp webdriver-update'
       - run:
           name: Test
-          command: 'gulp'
+          command: 'gulp --browser=firefox'
       - store_artifacts:
           path: ~/automated-tests/tmp/report.html
 

@@ -10,8 +10,8 @@ jobs:
           name: Update npm
           command: 'npm install -g npm@latest'
       - run:
-          name: Install gulp
-          command: 'npm i -g gulp'
+          name: Create local link to global gulp
+          command: 'npm link gulp'
       - run:
           name: Install dependencies
           command: 'npm i'

@@ -3,15 +3,12 @@ jobs:
   build:
     working_directory: ~/automated-tests
     docker:
-      - image: circleci/node:8
+      - image: driebit/node-gulp
     steps:
       - checkout
       - run:
           name: Update npm
           command: 'sudo npm install -g npm@latest'
-      - run:
-          name: Install gulp
-          command: 'sudo npm i -g gulp-cli'
       - run:
           name: Install dependencies
           command: 'npm i'
@@ -22,7 +19,7 @@ jobs:
 
   test:
     docker:
-      - image: circleci/node:8
+      - image: driebit/node-gulp
     steps:
       - run:
           name: Test
@@ -41,7 +38,3 @@ workflows:
       - test:
           requires:
             - build
-          pre:
-            - ./node_modules/.bin/gulp
-            - ./node_modules/gulp/bin/gulp.js
-            - node node_modules/gulp/bin/gulp.js

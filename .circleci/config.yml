@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  test:
+  build:
     working_directory: ~/auto-tests
     docker:
       - image: atlassianlabs/docker-node-jdk-chrome-firefox
@@ -19,6 +19,21 @@ jobs:
       - run:
           name: Install drivers
           command: 'gulp webdriver-update'
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths: node_modules
+
+  test:
+    working_directory: ~/automated-tests
+    docker:
+      - image: atlassianlabs/docker-node-jdk-chrome-firefox
+      - image: coveo/node-chrome-dockerbuild
+    steps:
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - checkout
       - run:
           name: Test
           command: 'gulp --browser=firefox'

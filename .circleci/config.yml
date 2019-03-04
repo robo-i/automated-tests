@@ -11,9 +11,6 @@ jobs:
           name: Update npm
           command: 'npm i -g npm@latest'
       - run:
-          name: Update npm
-          command: 'npm i -g npm@latest'
-      - run:
           name: Install gulp
           command: 'npm i -g gulp'
       - run:
@@ -28,7 +25,7 @@ jobs:
             - node_modules
       - persist_to_workspace:
           root: ~/auto-tests
-          paths: workspace
+          paths: node_modules
 
   test:
     working_directory: ~/automated-tests

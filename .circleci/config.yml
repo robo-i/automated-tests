@@ -9,19 +9,20 @@ jobs:
       - run:
           name: Update npm
           command: 'npm i -g npm@latest'
+      - run:
+          name: Install dependencies
+          command: 'npm i'
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
 
   test:
+    working_directory: ~/automated-tests
     docker:
       - image: driebit/node-gulp:latest
     steps:
       - checkout
-      - run:
-          name: Install dependencies
-          command: 'npm i'
       - run:
           name: Test
           command: 'gulp'

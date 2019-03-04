@@ -19,9 +19,6 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
-    branches:
-      only:
-        - master
 
   test:
     docker:
@@ -38,7 +35,10 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only: master
       - test:
-        requires:
+          requires:
             - build

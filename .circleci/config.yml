@@ -11,7 +11,7 @@ jobs:
           command: 'sudo npm install -g npm@latest'
       - run:
           name: install gulp
-          command: 'npm i gulp -g'
+          command: 'sudo npm i gulp -g'
       - run:
           name: install dependencies
           command: 'npm i'

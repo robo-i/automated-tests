@@ -35,7 +35,8 @@ jobs:
           name: Test
           command: 'gulp'
       - store_artifacts:
-          path: ~/auto-tests/tmp/reports/report.html
+          path: reports/report.html
+          destination: reports
 
 workflows:
   version: 2

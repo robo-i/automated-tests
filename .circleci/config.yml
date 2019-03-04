@@ -13,13 +13,10 @@ jobs:
       - run:
           name: Install dependencies
           command: 'npm i'
-#      - save_cache:
-#          key: dependency-cache-{{ checksum "package.json" }}
-#          paths:
-#            - node_modules
-      - persist_to_workspace:
-          root: ~/auto-tests
-          paths: node_modules
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
 
   test:
     working_directory: ~/automated-tests
@@ -27,16 +24,14 @@ jobs:
       - image: atlassianlabs/docker-node-jdk-chrome-firefox
       - image: coveo/node-chrome-dockerbuild
     steps:
-#      - restore_cache:
-#          keys:
-#            - dependency-cache-{{ checksum "package.json" }}
-#            - dependency-cache-
-      - attach_workspace:
-          at: ~/auto-tests
+      - restore_cache:
+          keys:
+            - dependency-cache-{{ checksum "package.json" }}
+            - dependency-cache-
       - checkout
       - run:
           name: Install gulp
-          command: 'npm i gulp'
+          command: 'npm i -g gulp'
       - run:
           name: Install drivers
           command: 'gulp webdriver-update'

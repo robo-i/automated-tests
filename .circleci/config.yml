@@ -1,37 +1,21 @@
 version: 2.1
 jobs:
-  build:
+  test:
     working_directory: ~/auto-tests
     docker:
-      - image: coveo/node-chrome-dockerbuild
-#      - image: atlassianlabs/docker-node-jdk-chrome-firefox
+#      - image: coveo/node-chrome-dockerbuild
+      - image: atlassianlabs/docker-node-jdk-chrome-firefox
     steps:
       - checkout
       - run:
           name: Update npm
           command: 'npm i -g npm@latest'
+#      - run:
+#          name: Install gulp
+#          command: 'npm i -g gulp'
       - run:
           name: Install dependencies
           command: 'npm i'
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - node_modules
-
-  test:
-    working_directory: ~/automated-tests
-    docker:
-      - image: atlassianlabs/docker-node-jdk-chrome-firefox
-      - image: coveo/node-chrome-dockerbuild
-    steps:
-      - restore_cache:
-          keys:
-            - dependency-cache-{{ checksum "package.json" }}
-            - dependency-cache-
-      - checkout
-      - run:
-          name: Install gulp
-          command: 'npm i -g gulp'
       - run:
           name: Install drivers
           command: 'gulp webdriver-update'
@@ -45,10 +29,4 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build:
-          filters:
-            branches:
-              only: master
-      - test:
-           requires:
-             - build
+      - test

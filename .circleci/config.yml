@@ -3,7 +3,8 @@ jobs:
   build:
     working_directory: ~/automated-tests
     docker:
-      - image: atlassianlabs/docker-node-jdk-chrome-firefox
+#      - image: atlassianlabs/docker-node-jdk-chrome-firefox
+      - image: selenium/node-chrome
     steps:
       - checkout
       - run:
@@ -17,7 +18,8 @@ jobs:
   test:
     working_directory: ~/automated-tests
     docker:
-      - image: atlassianlabs/docker-node-jdk-chrome-firefox
+#      - image: atlassianlabs/docker-node-jdk-chrome-firefox
+      - image: selenium/node-chrome
     steps:
       - checkout
       - run:
@@ -31,9 +33,9 @@ jobs:
           command: 'gulp webdriver-update'
       - run:
           name: Test
-          command: 'gulp --browser=firefox'
+          command: 'gulp'
       - store_artifacts:
-          path: ~/automated-tests/tmp/report.html
+          path: ~/automated-tests/tmp/report
 
 workflows:
   version: 2

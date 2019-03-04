@@ -6,6 +6,8 @@ jobs:
 #      - image: atlassianlabs/docker-node-jdk-chrome-firefox
       - image: coveo/node-chrome-dockerbuild
     steps:
+      - persist_to_workspace:
+          root: .
       - checkout
       - run:
           name: Update npm
@@ -33,6 +35,8 @@ jobs:
 #      - image: atlassianlabs/docker-node-jdk-chrome-firefox
       - image: coveo/node-chrome-dockerbuild
     steps:
+      - attach_workspace:
+          at: .
       - checkout
       - run:
           name: Test

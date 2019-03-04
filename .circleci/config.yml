@@ -16,7 +16,7 @@ jobs:
             - node_modules
 
   test:
-    SPLITS: ['chrome', 'firefox']
+#    SPLITS: ['chrome', 'firefox']
     working_directory: ~/automated-tests
     docker:
 #      - image: atlassianlabs/docker-node-jdk-chrome-firefox

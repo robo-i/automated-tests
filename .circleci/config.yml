@@ -31,7 +31,7 @@ jobs:
       - image: coveo/node-chrome-dockerbuild
     steps:
       - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-
       - checkout
       - run: mkdir report
       - run:

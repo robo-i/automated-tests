@@ -1,4 +1,4 @@
-version: 1
+version: 2.1
 jobs:
   build:
     working_directory: ~/automated-tests
@@ -29,12 +29,12 @@ jobs:
       - checkout
       - run:
           name: test
-          command: gulp
+          command: 'gulp'
       - store_artifacts:
           path: ~/automated-tests/tmp/report.html
 
 workflows:
-  version: 1
+  version: 2
   build_and_test:
     jobs:
       - build

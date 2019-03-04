@@ -5,7 +5,7 @@ jobs:
     docker:
 #      - image: atlassianlabs/docker-node-jdk-chrome-firefox
 #      - image: coveo/node-chrome-dockerbuild
-      - image: atlassianlabs/docker-node-jdk-chrome-firefox
+      - image: bestus/node-chrome-firefox
     steps:
       - checkout
       - run:
@@ -21,7 +21,8 @@ jobs:
     docker:
 #      - image: atlassianlabs/docker-node-jdk-chrome-firefox
 #      - image: coveo/node-chrome-dockerbuild
-      - image: atlassianlabs/docker-node-jdk-chrome-firefox
+      - image: bestus/node-chrome-firefox
+#    parallelism: 2
     steps:
       - checkout
       - run:

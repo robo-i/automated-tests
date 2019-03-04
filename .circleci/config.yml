@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/automated-tests
     docker:
-      - image: circleci/node
+      - image: atlassianlabs/docker-node-jdk-chrome-firefox
     steps:
       - checkout
       - run:
@@ -20,7 +20,7 @@ jobs:
   test:
     working_directory: ~/automated-tests
     docker:
-      - image: circleci/node
+      - image: atlassianlabs/docker-node-jdk-chrome-firefox
     steps:
       - checkout
       - run:

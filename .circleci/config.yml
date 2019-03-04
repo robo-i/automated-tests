@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/automated-tests
     docker:
-      - image: driebit/node-gulp:latest
+      - image: circleci/node
     steps:
       - checkout
       - run:
@@ -17,7 +17,7 @@ jobs:
   test:
     working_directory: ~/automated-tests
     docker:
-      - image: driebit/node-gulp:latest
+      - image: circleci/node
     steps:
       - checkout
       - run:

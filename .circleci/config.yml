@@ -6,10 +6,6 @@ jobs:
       - image: atlassianlabs/docker-node-jdk-chrome-firefox
       - image: coveo/node-chrome-dockerbuild
     steps:
-      - persist_to_workspace:
-          root: ~/auto-tests
-          paths:
-            - workspace
       - checkout
       - run:
           name: Update npm
@@ -30,6 +26,9 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
+      - persist_to_workspace:
+          root: ~/auto-tests
+          paths: workspace
 
   test:
     working_directory: ~/automated-tests

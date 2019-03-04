@@ -30,6 +30,9 @@ jobs:
           name: Install dependencies
           command: 'npm i'
       - run:
+          name: Download drivers
+          command: 'webdriver-manager update'
+      - run:
           name: Test
           command: 'gulp'
       - store_artifacts:

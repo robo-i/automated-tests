@@ -25,7 +25,7 @@ jobs:
       - checkout
       - run:
           name: Install gulp
-          command: 'npm i -g gulp'
+          command: 'sudo npm i -g gulp'
       - run:
           name: Install dependencies
           command: 'npm i'

@@ -8,9 +8,9 @@ jobs:
       - image: bestus/node-chrome-firefox
     steps:
       - checkout
-      - run:
-          name: Update npm
-          command: 'npm i -g npm@latest'
+#      - run:
+#          name: Update npm
+#          command: 'npm i -g npm@latest'
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:

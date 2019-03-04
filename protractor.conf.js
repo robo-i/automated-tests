@@ -32,7 +32,7 @@ exports.config = {
 
         jasmine.getEnv().addReporter(
             new PrettyReporter({
-                path: './tmp/reports',
+                path: './report',
                 screenshotOnPassed: true
             }));
 

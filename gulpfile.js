@@ -7,7 +7,7 @@ const webDriverUpdate = require('gulp-protractor').webdriver_update;
 
 gulp.task('default', ['test']);
 
-gulp.task('test', ['create-tmp-dir', 'delete-reports'], () => {
+gulp.task('test', ['create-report-dir', 'delete-report'], () => {
     return gulp.src('')
         .pipe(gulpProtractor({
             configFile: 'protractor.conf.js',
@@ -19,13 +19,13 @@ gulp.task('test', ['create-tmp-dir', 'delete-reports'], () => {
         }));
 });
 
-gulp.task('delete-reports', () => {
-    return del(['./tmp/reports']);
+gulp.task('delete-report', () => {
+    return del(['./report']);
 });
 
-gulp.task('create-tmp-dir', () => {
-    if (!fs.existsSync('./tmp')) {
-        fs.mkdirSync('./tmp');
+gulp.task('create-report-dir', () => {
+    if (!fs.existsSync('./report')) {
+        fs.mkdirSync('./report');
     }
 });
 

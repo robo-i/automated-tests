@@ -4,8 +4,7 @@ jobs:
     working_directory: ~/automated-tests
     docker:
 #      - image: atlassianlabs/docker-node-jdk-chrome-firefox
-#      - image: coveo/node-chrome-dockerbuild
-      - image: nextfaze/docker-node-jdk-chrome-firefox
+      - image: coveo/node-chrome-dockerbuild
     steps:
       - checkout
       - run:
@@ -20,8 +19,7 @@ jobs:
     working_directory: ~/automated-tests
     docker:
 #      - image: atlassianlabs/docker-node-jdk-chrome-firefox
-#      - image: coveo/node-chrome-dockerbuild
-      - image: nextfaze/docker-node-jdk-chrome-firefox
+      - image: coveo/node-chrome-dockerbuild
 #    parallelism: 2
     steps:
       - checkout

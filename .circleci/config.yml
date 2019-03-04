@@ -16,6 +16,7 @@ jobs:
             - node_modules
 
   test:
+    SPLITS: ['chrome', 'firefox']
     working_directory: ~/automated-tests
     docker:
 #      - image: atlassianlabs/docker-node-jdk-chrome-firefox
@@ -23,18 +24,10 @@ jobs:
 #    parallelism: 2
     steps:
       - checkout
-      - run:
-          name: Install gulp
-          command: 'npm i -g gulp'
-      - run:
-          name: Install dependencies
-          command: 'npm i'
-      - run:
-          name: Install drivers
-          command: 'gulp webdriver-update'
-      - run:
-          name: Test
-          command: 'gulp'
+      - run: npm i -g gulp
+      - run: npm i
+      - run: gulp webdriver-update
+      - run: gulp --frontendUrl=chrome
       - store_artifacts:
           path: ~/automated-tests/results
 

@@ -1,0 +1,44 @@
+version: 1
+jobs:
+  build:
+    working_directory: ~/automated-tests
+    branches:
+          only:
+            - master
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - run:
+          name: update npm
+          command: 'npm install -g npm@latest'
+      - run:
+          name: install gulp
+          command: 'npm i gulp -g'
+      - run:
+          name: install dependencies
+          command: 'npm i'
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+  test:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - run:
+          name: test
+          command: gulp
+      - store_artifacts:
+          path: ~/automated-tests/tmp/report.html
+
+workflows:
+  version: 1
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+

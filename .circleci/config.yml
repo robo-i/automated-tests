@@ -15,7 +15,6 @@ jobs:
             - node_modules
 
   test:
-    working_directory: ~/automated-tests
     docker:
       - image: driebit/node-gulp:latest
     steps:

@@ -3,11 +3,11 @@ jobs:
   build:
     working_directory: ~/auto-tests
     docker:
-#      - image: atlassianlabs/docker-node-jdk-chrome-firefox
+      - image: atlassianlabs/docker-node-jdk-chrome-firefox
       - image: coveo/node-chrome-dockerbuild
     steps:
       - persist_to_workspace:
-          root: /root/auto-tests
+          root: ~/auto-tests
           paths:
             - workspace
       - checkout
@@ -34,15 +34,15 @@ jobs:
   test:
     working_directory: ~/automated-tests
     docker:
-#      - image: atlassianlabs/docker-node-jdk-chrome-firefox
+      - image: atlassianlabs/docker-node-jdk-chrome-firefox
       - image: coveo/node-chrome-dockerbuild
     steps:
       - attach_workspace:
-          at: /root/auto-tests
+          at: ~/auto-tests
       - checkout
       - run:
           name: Test
-          command: 'gulp'
+          command: 'gulp --browser=firefox'
       - store_artifacts:
           path: /report/report.html
           destination: artifacts

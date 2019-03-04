@@ -1,7 +1,7 @@
 version: 2.1
 jobs:
   build:
-    working_directory: ~/automated-tests
+    working_directory: ~/auto-tests
     docker:
 #      - image: atlassianlabs/docker-node-jdk-chrome-firefox
       - image: coveo/node-chrome-dockerbuild
@@ -20,7 +20,6 @@ jobs:
     docker:
 #      - image: atlassianlabs/docker-node-jdk-chrome-firefox
       - image: coveo/node-chrome-dockerbuild
-#    parallelism: 2
     steps:
       - checkout
       - run:
@@ -36,7 +35,7 @@ jobs:
           name: Test
           command: 'gulp'
       - store_artifacts:
-          path: ~/automated-tests/results
+          path: ~/auto-tests/tmp/reports/report.html
 
 workflows:
   version: 2

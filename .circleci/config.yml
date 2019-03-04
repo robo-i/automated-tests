@@ -8,6 +8,8 @@ jobs:
     steps:
       - persist_to_workspace:
           root: .
+          paths:
+            - workspace
       - checkout
       - run:
           name: Update npm

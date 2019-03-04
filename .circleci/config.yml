@@ -3,8 +3,8 @@ jobs:
   test:
     working_directory: ~/auto-tests
     docker:
-      - image: coveo/node-chrome-dockerbuild
-#      - image: atlassianlabs/docker-node-jdk-chrome-firefox
+#      - image: coveo/node-chrome-dockerbuild
+      - image: atlassianlabs/docker-node-jdk-chrome-firefox
     steps:
       - checkout
       - run:
@@ -21,7 +21,7 @@ jobs:
           command: 'gulp webdriver-update'
       - run:
           name: Test
-          command: 'gulp'
+          command: 'gulp --browser=firefox'
       - store_artifacts:
           path: ./report/report.html
 

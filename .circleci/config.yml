@@ -5,7 +5,7 @@ jobs:
     docker:
 #      - image: atlassianlabs/docker-node-jdk-chrome-firefox
 #      - image: coveo/node-chrome-dockerbuild
-      - image: digitalgenius/ubuntu-node-chrome-selenium
+      - image: nextfaze/docker-node-jdk-chrome-firefox
     steps:
       - checkout
       - run:
@@ -21,7 +21,7 @@ jobs:
     docker:
 #      - image: atlassianlabs/docker-node-jdk-chrome-firefox
 #      - image: coveo/node-chrome-dockerbuild
-      - image: digitalgenius/ubuntu-node-chrome-selenium
+      - image: nextfaze/docker-node-jdk-chrome-firefox
 #    parallelism: 2
     steps:
       - checkout
@@ -38,7 +38,7 @@ jobs:
           name: Test
           command: 'gulp'
       - store_artifacts:
-          path: ~/automated-tests/tmp/report
+          path: ~/automated-tests/results
 
 workflows:
   version: 2

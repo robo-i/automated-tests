@@ -7,7 +7,7 @@ jobs:
       - image: coveo/node-chrome-dockerbuild
     steps:
       - persist_to_workspace:
-          root: .
+          root: /root/auto-tests
           paths:
             - workspace
       - checkout
@@ -38,7 +38,7 @@ jobs:
       - image: coveo/node-chrome-dockerbuild
     steps:
       - attach_workspace:
-          at: .
+          at: /root/auto-tests
       - checkout
       - run:
           name: Test

@@ -2,9 +2,6 @@ version: 2.1
 jobs:
   build:
     working_directory: ~/automated-tests
-    branches:
-          only:
-            - master
     docker:
       - image: circleci/node:8
     steps:
@@ -37,6 +34,10 @@ workflows:
   version: 2
   build_and_test:
     jobs:
+      build:
+        branches:
+          only:
+            - master
       - build
       - test:
           requires:

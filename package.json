@@ -10,13 +10,16 @@
     "eslint-plugin-import": "2.16.0",
     "eslint-plugin-jasmine": "2.10.1",
     "eslint-plugin-protractor": "1.41.1",
-    "gulp": "3.9.1",
+    "gulp": "^4.0.0",
     "gulp-protractor": "4.1.0",
     "html-dnd": "1.2.0",
     "jasmine-spec-reporter": "4.2.1",
     "properties-reader": "0.0.16",
     "protractor-pretty-html-reporter": "0.0.15",
-    "uuid": "3.3.2",
-    "unirest": "0.6.0"
+    "unirest": "0.6.0",
+    "uuid": "3.3.2"
+  },
+  "scripts": {
+    "webdriver-update": "webdriver-update"
   }
 }

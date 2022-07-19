@@ -14,7 +14,7 @@
     "gulp-protractor": "4.1.0",
     "html-dnd": "1.2.0",
     "jasmine-spec-reporter": "4.2.1",
-    "properties-reader": "0.0.16",
+    "properties-reader": "2.2.0",
     "protractor-pretty-html-reporter": "0.0.15",
     "unirest": "0.6.0",
     "uuid": "3.3.2"
